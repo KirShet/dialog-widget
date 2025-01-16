@@ -1,5 +1,5 @@
 {
-    "name": "kirshet/yii2-dialog-widget",
+    "name": "kirshet/yii2_dialog_widget",
     "description": "A Dialog Widget user interactions in Yii2 applications.",
     "type": "library",
     "license": "MIT",
