@@ -1,0 +1,134 @@
+/* Базовые стили */
+.chat-container {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 20px auto;
+    background: #f5f5f5;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.bubbles-group {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.bubble {
+    max-width: 75%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    position: relative;
+    margin-bottom: 5px;
+    word-wrap: break-word;
+    line-height: 1.4;
+    font-size: 14px;
+}
+
+.bubble.is-out {
+    align-self: flex-end;
+    background-color: #dcf8c6;
+    color: #000;
+}
+
+.bubble.is-in {
+    align-self: flex-start;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #e0e0e0;
+}
+
+.bubble .bubble-tail {
+    position: absolute;
+    bottom: 0;
+    width: 10px;
+    height: 10px;
+}
+
+.bubble.is-out .bubble-tail {
+    right: -5px;
+    fill: #dcf8c6;
+}
+
+.bubble.is-in .bubble-tail {
+    left: -5px;
+    fill: #fff;
+}
+
+.bubble .bubble-content-wrapper {
+    position: relative;
+}
+
+.bubble-content {
+    position: relative;
+    z-index: 1;
+}
+
+.bubble .time-start,
+.bubble .time-end {
+    font-size: 10px;
+    color: #888;
+    display: inline-block;
+    margin-top: 5px;
+    visibility: hidden;
+    float: right;
+}
+
+.bubble .time-start .i18n,
+.bubble .time-end .i18n {
+    padding: 2px 5px;
+}
+
+.bubble-hover-reaction {
+    position: absolute;
+    right: -25px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.bubble:hover .bubble-hover-reaction {
+    opacity: 1;
+}
+
+.bubble-hover-reaction-sticker {
+    width: 18px;
+    height: 18px;
+}
+/* Тени и динамические стили */
+.bubble.is-out {
+    box-shadow: 0 2px 5px rgba(0, 128, 0, 0.2);
+}
+
+.bubble.is-in {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Подсветка текущего сообщения */
+.bubble:hover {
+    background-color: #eef8dc;
+    transition: background-color 0.2s;
+}
+
+/* Разные цвета пользователей (можно добавить динамическую генерацию) */
+:root {
+    --peer-2-color-rgb: 255, 240, 240;
+    --peer-2-border-background: #ffd1d1;
+}
+
+.bubble.is-in[style*="--peer-color-rgb"] {
+    background-color: rgba(var(--peer-color-rgb), 0.8);
+    border: 1px solid var(--peer-border-background);
+}
+
+
+/* Дополнительные стили */
+.time-inner{
+    visibility: visible;
+}
+.score{
+    display:none;
+}
