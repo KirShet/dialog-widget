@@ -45,7 +45,7 @@ class DialogWidget extends Widget
      */
     private function renderResponse(array $response)
     {
-    $html = '<svg style="display:none;" ><symbol id="message-tail-filled" viewBox="0 0 11 20" ><path d="M6 17H0V0c.193 2.84.876 5.767 2.05 8.782.904 2.325 2.446 4.485 4.625 6.48A1 1 0 016 17z" /></symbol></svg><div class="chat-container mw-100">';
+    $html = '<svg style="display:none;" ><symbol id="message-tail-filled" viewBox="0 0 11 20" ><path d="M6 17H0V0c.193 2.84.876 5.767 2.05 8.782.904 2.325 2.446 4.485 4.625 6.48A1 1 0 016 17z" /></symbol></svg><div class="chat-container container-fluid">';
 
     foreach ($response as $message) {
         $sourceClass = $message['source'] === 'transmitter' ? 'is-out' : 'is-in';

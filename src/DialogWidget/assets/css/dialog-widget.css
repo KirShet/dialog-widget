@@ -1,12 +1,27 @@
+:root{
+    --bs-bg-opacity: 1;
+        --bs-white-rgb: 255, 255, 255;
+        --bs-box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        --bs-card-title-spacer-y: 0.5rem;
+        --bs-secondary-color: rgba(33, 37, 41, 0.75);
+        --peer-2-color-rgb: 255, 240, 240;
+        --peer-2-border-background: #ffd1d1;
+}
 /* Базовые стили */
 .chat-container {
     font-family: Arial, sans-serif;
-    max-width: 600px;
     margin: 20px auto;
     background: #f5f5f5;
     border-radius: 10px;
     padding: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.chat-container>div {
+    margin-bottom: 1rem !important;
+    align-items: flex-start !important;
+    flex-direction: column !important;
+    display: flex !important;
 }
 
 .bubbles-group {
@@ -17,6 +32,9 @@
 }
 
 .bubble {
+    background-color: rgba(var(--bs-white-rgb), var(--bs-bg-opacity)) !important;
+    padding: 0.5rem !important;
+    box-shadow: var(--bs-box-shadow-sm) !important;
     max-width: 75%;
     padding: 10px 15px;
     border-radius: 15px;
@@ -25,6 +43,24 @@
     word-wrap: break-word;
     line-height: 1.4;
     font-size: 14px;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.card-title {
+    margin-bottom: var(--bs-card-title-spacer-y);
+    color: var(--bs-card-title-color);
+    /*  */
+    /* margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-weight: 600;
+    line-height: 1.1;
+    color: inherit; */
 }
 
 .bubble.is-out {
@@ -77,6 +113,11 @@
     visibility: hidden;
     float: right;
     height: 25px;
+    /*  */
+    --bs-text-opacity: 1;
+    color: var(--bs-secondary-color) !important;
+    display: inline-block !important;
+    box-sizing: border-box;
 }
 
 .bubble .time-start .i18n,
@@ -114,12 +155,6 @@
 .bubble:hover {
     background-color: #eef8dc;
     transition: background-color 0.2s;
-}
-
-/* Разные цвета пользователей (можно добавить динамическую генерацию) */
-:root {
-    --peer-2-color-rgb: 255, 240, 240;
-    --peer-2-border-background: #ffd1d1;
 }
 
 .bubble.is-in[style*="--peer-color-rgb"] {
