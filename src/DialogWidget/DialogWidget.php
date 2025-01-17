@@ -1,8 +1,8 @@
 <?php 
-namespace  kirshet\yii2-dialog-widget\DialogWidget; 
+namespace  kirshet\yii2_dialog_widget\DialogWidget; 
 
 use yii\base\Widget;
-use kirshet\yii2-dialog-widget\DialogWidget\assets\DialogWidgetAsset;
+use kirshet\yii2_dialog_widget\DialogWidget\assets\DialogWidgetAsset;
 
 class DialogWidget extends Widget
 {
@@ -32,18 +32,15 @@ class DialogWidget extends Widget
      */
     private function renderResponse(array $response)
     {
-    $html = '<div class="chat-container mw-100">';
+    $html = '<svg style="display:none;" ><symbol id="message-tail-filled" viewBox="0 0 11 20" ><path d="M6 17H0V0c.193 2.84.876 5.767 2.05 8.782.904 2.325 2.446 4.485 4.625 6.48A1 1 0 016 17z" /></symbol></svg><div class="chat-container mw-100">';
 
     foreach ($response as $message) {
         $sourceClass = $message['source'] === 'transmitter' ? 'is-out' : 'is-in';
-        $peerStyle = $message['source'] === 'receiver' 
-            ? 'style="--peer-color-rgb: var(--peer-2-color-rgb); --peer-border-background: var(--peer-2-border-background);"'
-            : '';
             $p1 = $message['source'] === 'transmitter' 
             ? 'Диспетчер'
             : 'Заявитель';
         $html .= '<div class="d-flex flex-column align-items-start mb-3">';
-        $html .= '<div data-mid="314994" data-timestamp="' . htmlspecialchars((string)$message['start']) . '" class="bubble ' . $sourceClass . ' bubble is-out can-have-tail is-group-first is-group-last bg-white border rounded p-2 shadow-sm" ' . $peerStyle . '>';
+        $html .= '<div data-mid="314994" data-timestamp="' . htmlspecialchars((string)$message['start']) . '" class="bubble ' . $sourceClass . ' bubble is-out can-have-tail is-group-first is-group-last bg-white rounded p-2 shadow-sm">';
         $html .= '<div class="position-relative">';
         $html .= '<div class="position-relative">';
         $html .= '<div class="message spoilers-container" dir="auto">';
@@ -54,8 +51,8 @@ class DialogWidget extends Widget
         $html .= '<span class="time-end text-muted"><span class="i18n" dir="auto">' . htmlspecialchars((string)$message['end']) . '</span>';
         $html .= '<div class="time-inner" title="Сообщение закончилось ' . htmlspecialchars((string)$message['end']) . '"><span class="i18n" dir="auto">' . htmlspecialchars((string)$message['end']) . '</span></div></span>';
         $html .= '<span class="score">'.htmlspecialchars($message['score']).'</span></div>';
-        $html .= '<svg viewBox="0 0 11 20" width="11" height="20" class="bubble-tail"><use href="#message-tail-filled"></use></svg>';
-        $html .= '</div></div></div></div>';
+        $html .= '</div></div>';
+        $html .= '<svg viewBox="-11 -4 29 29" class="bubble-tail"><use href="#message-tail-filled"></use></svg></div></div>';
     }
 
     $html .= '</div>';

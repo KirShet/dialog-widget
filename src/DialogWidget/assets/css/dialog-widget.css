@@ -31,30 +31,32 @@
     align-self: flex-end;
     background-color: #dcf8c6;
     color: #000;
+    border-radius: 0.375rem 0.375rem 0px 0.375rem !important;
 }
 
 .bubble.is-in {
     align-self: flex-start;
     background-color: #fff;
     color: #000;
-    border: 1px solid #e0e0e0;
+    border-radius: 0.375rem 0.375rem 0.375rem 0px !important;
 }
 
 .bubble .bubble-tail {
     position: absolute;
     bottom: 0;
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
 }
 
 .bubble.is-out .bubble-tail {
-    right: -5px;
-    fill: #dcf8c6;
+    right: -7px;
+    fill:rgb(255, 255, 255);
 }
 
 .bubble.is-in .bubble-tail {
-    left: -5px;
-    fill: #fff;
+    left: -7px;
+    fill: rgb(255, 255, 255);
+    transform: scale(-1, 1);
 }
 
 .bubble .bubble-content-wrapper {
@@ -74,6 +76,7 @@
     margin-top: 5px;
     visibility: hidden;
     float: right;
+    height: 25px;
 }
 
 .bubble .time-start .i18n,
