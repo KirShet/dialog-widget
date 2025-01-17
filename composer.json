@@ -17,7 +17,7 @@
     "minimum-stability": "stable",
     "extra": {
         "installer-paths": {
-            "common/widgets/DialogWidget": ["kirshet/yii2"]
+            "common/widgets/DialogWidget": ["kirshet/yii2_dialog_widget"]
         }
     }
 }
