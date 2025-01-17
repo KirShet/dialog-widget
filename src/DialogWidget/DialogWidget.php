@@ -1,7 +1,9 @@
 <?php 
 namespace  kirshet\yii2_dialog_widget\DialogWidget; 
 
+use Yii;
 use yii\base\Widget;
+use kirshet\stt_api_component\SttApiComponent\SttApiComponent;
 use kirshet\yii2_dialog_widget\DialogWidget\assets\DialogWidgetAsset;
 
 class DialogWidget extends Widget
@@ -15,13 +17,24 @@ class DialogWidget extends Widget
             return '<p>Недостаточно данных для запроса.</p>';
         }
 
-        $response = \Yii::$app->sttApi->sendRequest($this->callid, $this->callurl);
+        $sttApi = $this->getSttApi();
+        $response = $sttApi->sendRequest($this->callid, $this->callurl);
 
         if ($response) {
             return $this->renderResponse($response);
         }
 
         return '<p>Ошибка при получении данных от STT API.</p>';
+    }
+
+    private function getSttApi()
+    {
+
+        if (\Yii::$app->has('sttApi')) {
+            return \Yii::$app->sttApi;
+        }
+
+        return new SttApiComponent();
     }
 
     /**
