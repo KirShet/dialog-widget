@@ -7,6 +7,11 @@
         --peer-2-color-rgb: 255, 240, 240;
         --peer-2-border-background: #ffd1d1;
 }
+.time-end .time-inner .i18n::after {
+    content: "   -"; /* Символ минуса */
+    color: #333; /* Цвет минуса (можно настроить) */
+    font-weight: normal; /* Вес шрифта */
+}
 /* Базовые стили */
 .chat-container {
     font-family: Arial, sans-serif;
