@@ -5,7 +5,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "kirshet\\yii2\\": "src/"
+            "kirshet\\yii2_dialog_widget\\": "src/"
         }
     },
     "authors": [
